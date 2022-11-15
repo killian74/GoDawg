@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "885008732583",
+    "project_id": "godawg-964a9",
+    "storage_bucket": "godawg-964a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885008732583:android:8e30730d99f7c11c35a682",
+        "android_client_info": {
+          "package_name": "com.godawg.truman.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885008732583-d7mmv56toksl4gpfjh6bd2bcspvojq2i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASBY0l3e6Ql-w4MQPCyl9w8kAWzdCE0Ec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "885008732583-d7mmv56toksl4gpfjh6bd2bcspvojq2i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "885008732583-659m7gsch46in7n0fo3turmt2hh9v68d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.godawg.package.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
