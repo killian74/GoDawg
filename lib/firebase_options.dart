@@ -63,12 +63,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBk577foSaSJiZMy66SEw2cN8pxUW-VKeg',
-    appId: '1:885008732583:ios:e3eff82f8a952a2d35a682',
+    appId: '1:885008732583:ios:3918337b51eb599e35a682',
     messagingSenderId: '885008732583',
     projectId: 'godawg-964a9',
     storageBucket: 'godawg-964a9.appspot.com',
-    iosClientId: '885008732583-f277d4p8htvqfsnfhqk0kgj2vpnq5nmc.apps.googleusercontent.com',
-    iosBundleId: 'com.example.goDawg',
+    iosClientId: '885008732583-vubv8d9nt9vi4jgcdqda1o3i20bukh35.apps.googleusercontent.com',
+    iosBundleId: 'com.godawg.ios.truman.app',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(

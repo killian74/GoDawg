@@ -42,6 +42,7 @@ dependencies:
   syncfusion_flutter_gauges: ^20.3.56
   firebase_auth: ^4.1.2
   url_launcher: ^6.1.6
+  flutter_launcher_icons: ^0.10.0
 
 dev_dependencies:
   flutter_test:
@@ -67,11 +68,15 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/ba.jpg
-    - images/cs.jpg
+    - images/BA.jpg
+    - images/CS.jpg
     - images/cs_2.jpg
     - images/exercise_science.jpg
-    - images/math.jpg
+    - images/MATH.jpg
+    - images/ES.png
+    - images/STAT.jpg
+    - images/MATH2.jpg
+    - images/THEA.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

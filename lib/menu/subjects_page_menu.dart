@@ -39,9 +39,12 @@ class _SubjectsPageState extends State<SubjectsPage> {
               crossAxisCount: 2,
               children: [
                 courseTile("Computer Science", "CS", "images/cs.jpg"),
-                courseTile("Math", "MATH", "images/math.jpg"),
+                courseTile("Mathematics", "MATH", "images/math.jpg"),
                 courseTile("Business Administration",  "BA", "images/ba.jpg"),
-                courseTile("Exercise science",  "ES", "images/exercise_science.jpg")
+                courseTile("Exercise Science",  "ES", "images/ES.png"),
+                courseTile("Statistic",  "STAT", "images/STAT.jpg"),
+                courseTile("Physics",  "PHYS", "images/MATH2.jpg"),
+                courseTile("Theather",  "THEA", "images/THEA.jpg")
               ],
             ),
           )
