@@ -93,8 +93,8 @@ class _ContactPageState extends State<ContactPage> {
                   Text(professor.name, style: const TextStyle(fontSize: 17.0),),
                   Row(
                     children: [
-                      Icon(CupertinoIcons.location_solid, color: Colors.grey, size: 15.0,),
-                      Text(professor.location, style: TextStyle(fontSize: 14.0, color: Colors.grey),),
+                      const Icon(CupertinoIcons.location_solid, color: Colors.grey, size: 15.0,),
+                      Text(professor.location, style: const TextStyle(fontSize: 14.0, color: Colors.grey),),
                     ],
                   ),
                 ],

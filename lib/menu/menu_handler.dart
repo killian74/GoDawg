@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_dawg/menu/camera_page_menu.dart';
 import 'package:go_dawg/menu/contact_page_menu.dart';
 import 'package:go_dawg/menu/group_study_page_menu.dart';
 import 'package:go_dawg/menu/subjects_page_menu.dart';
@@ -38,10 +37,10 @@ class _MenuHandlerState extends State<MenuHandler> {
   Widget build(BuildContext context) {
 
     List<String> menuPageTitles = ["Subjects", "Group Study", "Contact"];
-    List<Widget> menuPages = const [
-      SubjectsPage(),
-      GroupStudyPageMenu(),
-      ContactPage(),
+    List<Widget> menuPages = [
+      const SubjectsPage(),
+      GroupStudyPageMenu(fullName: user.fullName,),
+      const ContactPage(),
       //CameraPage(),
     ];
 

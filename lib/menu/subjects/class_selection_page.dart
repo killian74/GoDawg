@@ -11,10 +11,6 @@ class ClassSelectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    List<String> classes = ["CS 170", "CS 180", "CS 181"];
-    List<String> descs = ["Intro to Computer Science I", "Foundations of Computer Science I", "Foundations of Computer Science II", "Computing Structures"];
-    List<String> terms = ["CS Spring 2023", "CS Summer 2023", "CS Fall 2023", "CS Spring 2023"];
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,

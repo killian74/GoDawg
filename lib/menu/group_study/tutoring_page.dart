@@ -46,11 +46,11 @@ class TutoringPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(tutoring.name, style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+            Text(tutoring.name, style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
             Row(
               children: [
-                Icon(CupertinoIcons.location_solid, color: Colors.grey, size: 20.0,),
-                Text(tutoring.location, style: TextStyle(color: Colors.grey),)
+                const Icon(CupertinoIcons.location_solid, color: Colors.grey, size: 20.0,),
+                Text(tutoring.location, style: const TextStyle(color: Colors.grey),)
               ],
             ),
             Padding(

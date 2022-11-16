@@ -5,7 +5,8 @@ import 'package:go_dawg/menu/group_study/group_study_page.dart';
 import 'package:go_dawg/models/pair.dart';
 
 class GroupStudyPageMenu extends StatefulWidget {
-  const GroupStudyPageMenu({Key? key}) : super(key: key);
+  final String fullName;
+  const GroupStudyPageMenu({Key? key, required this.fullName}) : super(key: key);
 
   @override
   State<GroupStudyPageMenu> createState() => _GroupStudyPageMenuState();
@@ -61,7 +62,7 @@ class _GroupStudyPageMenuState extends State<GroupStudyPageMenu> {
 
   Widget classTile(Pair course) {
     return InkWell(
-      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => GroupStudyPage(course: course,))),
+      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => GroupStudyPage(course: course, fullName: widget.fullName,))),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         color: Colors.deepPurple,

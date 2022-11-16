@@ -42,12 +42,12 @@ class MaterialsPage extends StatelessWidget {
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         elevation: 10.0,
-        margin: EdgeInsets.all(5.0),
+        margin: const EdgeInsets.all(5.0),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Text(material.title, style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),),
+              Text(material.title, style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),),
               Text(material.description)
             ],
           )
