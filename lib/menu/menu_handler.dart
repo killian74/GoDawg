@@ -37,12 +37,12 @@ class _MenuHandlerState extends State<MenuHandler> {
   @override
   Widget build(BuildContext context) {
 
-    List<String> menuPageTitles = ["Subjects", "Group Study", "Contact", "Camera"];
+    List<String> menuPageTitles = ["Subjects", "Group Study", "Contact"];
     List<Widget> menuPages = const [
       SubjectsPage(),
       GroupStudyPageMenu(),
       ContactPage(),
-      CameraPage(),
+      //CameraPage(),
     ];
 
     return Scaffold(
@@ -74,7 +74,7 @@ class _MenuHandlerState extends State<MenuHandler> {
               ),
 
               drawerOptions(CupertinoIcons.info, "About", () {}),
-              drawerOptions(Icons.logout, "Sign Out", () {}),
+              drawerOptions(Icons.logout, "Sign Out", () => FirebaseAuth.instance.signOut()),
             ],
           )
         ),
@@ -105,7 +105,7 @@ class _MenuHandlerState extends State<MenuHandler> {
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.book), label: "Subjects"),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.group), label: "Group Study"),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.profile_circled), label: "Contact"),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.camera), label: "Camera"),
+          //BottomNavigationBarItem(icon: Icon(CupertinoIcons.camera), label: "Camera"),
         ],
         currentIndex: index,
         selectedItemColor: Colors.deepPurple,

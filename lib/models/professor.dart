@@ -6,6 +6,7 @@ class Professor {
   late String name;
   late Map<String, dynamic> schedule;
   late String location;
+  late String phoneNumber;
 
   Professor(DocumentSnapshot<Map<String, dynamic>>? snapshot) {
     Map<String, dynamic> map = snapshot!.data() as Map<String, dynamic>;
@@ -15,6 +16,7 @@ class Professor {
     schedule = map["schedule"];
     location = map["location"];
     imageUrl = map["imageUrl"];
+    phoneNumber = map["phoneNumber"];
 
 
   }

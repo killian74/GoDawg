@@ -25,8 +25,16 @@ class ProfessorPage extends StatelessWidget {
                 Text(professor.location, style: TextStyle(fontSize: 18.0, color: Colors.grey),),
               ],
             ),
+            SizedBox(height: 5.0,),
+            if (professor.phoneNumber != "")
+              Row(
+                children: [
+                  Icon(CupertinoIcons.phone, color: Colors.grey, size: 20.0,),
+                  Text(professor.phoneNumber, style: TextStyle(fontSize: 18.0, color: Colors.grey),)
+                ]
+              ),
             const Divider(),
-            for (var i in professor.schedule.entries) 
+            for (var i in professor.schedule.entries)
               Text("${i.key} : ${i.value}", style: TextStyle(fontSize: 18.0),)
           ],
         ),

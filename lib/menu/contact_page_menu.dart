@@ -32,7 +32,7 @@ class _ContactPageState extends State<ContactPage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextFieldAppBar(controller: _contactController, hint: "Search a professor", icon: CupertinoIcons.person_circle),
+        TextFieldAppBar(controller: _contactController, hint: "Search a professor/department", icon: CupertinoIcons.person_circle),
         Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -81,13 +81,24 @@ class _ContactPageState extends State<ContactPage> {
                 width: 60.0,
                 height: 60.0,
                 decoration: BoxDecoration(
-                  image: DecorationImage(fit: BoxFit.cover, image: NetworkImage("https://res.cloudinary.com/glide/image/fetch/t_media_lib_thumb/https%3A%2F%2Fstorage.googleapis.com%2Fglide-prod.appspot.com%2Fuploads-v2%2FhjRb2VbsHzaT2GFjjfMN%2Fpub%2FQ71MWFIswMSPPX1QgZ0Q.jpeg")),
-                  shape: BoxShape.circle,
-                  color: Colors.deepPurpleAccent
+                    image: DecorationImage(fit: BoxFit.cover, image: NetworkImage(professor.imageUrl)),
+                    shape: BoxShape.circle,
+                    color: Colors.deepPurpleAccent
                 ),
               ),
               const SizedBox(width: 5.0,),
-              Text(professor.name, style: const TextStyle(fontSize: 17.0),)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(professor.name, style: const TextStyle(fontSize: 17.0),),
+                  Row(
+                    children: [
+                      Icon(CupertinoIcons.location_solid, color: Colors.grey, size: 15.0,),
+                      Text(professor.location, style: TextStyle(fontSize: 14.0, color: Colors.grey),),
+                    ],
+                  ),
+                ],
+              )
             ],
           ),
           const Icon(CupertinoIcons.forward),
