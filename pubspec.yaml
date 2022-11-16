@@ -41,7 +41,6 @@ dependencies:
   cloud_firestore: ^4.0.5
   syncfusion_flutter_gauges: ^20.3.56
   firebase_auth: ^4.1.2
-  firebase_dynamic_links: ^5.0.5
 
 dev_dependencies:
   flutter_test:

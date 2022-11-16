@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_dawg/main.dart';
@@ -87,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                         });
                       }
                     },
-                    child: Text(showPwdTextField? "Login" : 'Continue', style: TextStyle(fontSize: 20.0, color: Colors.black),),
+                    child: Text(showPwdTextField? "Login" : 'Continue', style: const TextStyle(fontSize: 20.0, color: Colors.black),),
                   ),
                 ),
 
@@ -102,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
 
   TextField simpleTextField(TextEditingController controller, bool isPwd, String hint) {
     return TextField(
-      style: TextStyle(color: Colors.white),
+      style: const TextStyle(color: Colors.white),
       obscureText: isPwd,
         controller: controller,
         decoration: InputDecoration(

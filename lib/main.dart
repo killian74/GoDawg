@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:go_dawg/login/login.dart';
+import 'package:go_dawg/login.dart';
 import 'package:go_dawg/menu/menu_handler.dart';
 
 void main() async{
@@ -26,10 +26,9 @@ class MyApp extends StatelessWidget {
           builder: (context, snapshot) {
             if(snapshot.hasData) {
               checkUser(snapshot.data!);
-
               User user = snapshot.data!;
 
-              return MenuHandler(uid: snapshot.data!.uid);
+              return MenuHandler(uid: user.uid);
             }
 
             return const LoginPage();

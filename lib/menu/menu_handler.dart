@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_dawg/menu/camera_page.dart';
-import 'package:go_dawg/menu/contact_page.dart';
-import 'package:go_dawg/menu/group_study_page.dart';
-import 'package:go_dawg/menu/subjects_page.dart';
+import 'package:go_dawg/menu/camera_page_menu.dart';
+import 'package:go_dawg/menu/contact_page_menu.dart';
+import 'package:go_dawg/menu/group_study_page_menu.dart';
+import 'package:go_dawg/menu/subjects_page_menu.dart';
 import 'package:go_dawg/models/appUser.dart';
 
 class MenuHandler extends StatefulWidget {
@@ -21,13 +21,26 @@ class _MenuHandlerState extends State<MenuHandler> {
 
   int index = 0;
 
+  late AppUser user;
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance.collection("users").doc(widget.uid).snapshots().listen((event) {
+      setState(() {
+        user = AppUser(event);
+      });
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
 
-    List<String> menuPageTitles = ["Subjects", "Group Study", "Camera", "Contact"];
+    List<String> menuPageTitles = ["Subjects", "Group Study", "Contact", "Camera"];
     List<Widget> menuPages = const [
       SubjectsPage(),
-      GroupStudyPage(),
+      GroupStudyPageMenu(),
       ContactPage(),
       CameraPage(),
     ];
@@ -35,26 +48,35 @@ class _MenuHandlerState extends State<MenuHandler> {
     return Scaffold(
       drawer: SafeArea(
         child: Drawer(
-          backgroundColor: Colors.deepPurple,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.white,
-                      child: Text("KP"),
+          backgroundColor: Colors.white,
+          child: Column(
+            children: [
+              Container(
+                color: Colors.deepPurple,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 30.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: const [
+                          Icon(CupertinoIcons.profile_circled, size: 60.0, color: Colors.white,),
+                          SizedBox(width: 5.0,),
+                          Text("Killian Pinier", style: TextStyle(color: Colors.white, fontSize: 20.0),)
+                        ],
+                      ),
+                      const SizedBox(height: 10.0,),
+                      Text(user.email, style: const TextStyle(color: Colors.white),)
+                    ],
+                  ),
+                ),
+              ),
 
-                    ),
-                    SizedBox(width: 5.0,),
-                    Text("Killian Pinier", style: TextStyle(color: Colors.white, fontSize: 20.0),)
-                  ],
-                )
-              ],
-            ),
-          ),
+              drawerOptions(CupertinoIcons.info, "About", () {}),
+              drawerOptions(Icons.logout, "Sign Out", () {}),
+            ],
+          )
         ),
       ),
 
@@ -73,21 +95,7 @@ class _MenuHandlerState extends State<MenuHandler> {
           ) : const SizedBox.shrink()
         ],
       ),
-      body: FutureBuilder(
-        future: FirebaseFirestore.instance.collection("users").doc(widget.uid).get(),
-
-
-          builder: (context, snapshot) {
-          AppUser user;
-
-            if(snapshot.connectionState == ConnectionState.done) {
-               user = AppUser(snapshot.data);
-               return menuPages[index];
-            } else {
-              return const Center(child: CircularProgressIndicator());
-            }
-          }
-      ),
+      body: menuPages[index],
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels: true,
         unselectedItemColor: Colors.grey,
@@ -108,6 +116,22 @@ class _MenuHandlerState extends State<MenuHandler> {
         },
       ),
 
+    );
+  }
+
+  Widget drawerOptions(IconData icon, String text, Function function) {
+    return InkWell(
+      onTap: () => function,
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(icon, size: 35.0,),
+          ),
+          Text(text, style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold
+          ),)
+        ],
+      ),
     );
   }
 

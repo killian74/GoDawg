@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_dawg/Widgets/subjects_navigation_tile.dart';
-import 'package:go_dawg/subjects/class_selection_page.dart';
 
 class CourseLevelPage extends StatelessWidget {
   const CourseLevelPage({Key? key}) : super(key: key);
@@ -19,7 +17,8 @@ class CourseLevelPage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: ListView.separated(
             itemBuilder: (ctx, index) {
-              return SubjectsNavigationTile(abbreviation: ((index+1)*100).toString(), text: levels[index], route: MaterialPageRoute(builder: (context) => const ClassSelectionPage()));
+              return Container();
+              //return SubjectsNavigationTile(abbreviation: ((index+1)*100).toString(), text: levels[index], route: MaterialPageRoute(builder: (context) => ClassSelectionPage(abbreviation: ab,)));
             },
             separatorBuilder: (context, index) {
               return const Divider();

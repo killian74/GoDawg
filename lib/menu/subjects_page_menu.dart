@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_dawg/Widgets/text_field_appbar.dart';
-import 'package:go_dawg/subjects/term_page.dart';
+import 'package:go_dawg/menu/subjects/term_page.dart';
 
 
 class SubjectsPage extends StatefulWidget {
@@ -38,10 +38,10 @@ class _SubjectsPageState extends State<SubjectsPage> {
               childAspectRatio: 1.5,
               crossAxisCount: 2,
               children: [
-                courseTile("Computer Science", "images/cs.jpg"),
-                courseTile("Math", "images/math.jpg"),
-                courseTile("Business Administration", "images/ba.jpg"),
-                courseTile("Exercise science", "images/exercise_science.jpg")
+                courseTile("Computer Science", "CS", "images/cs.jpg"),
+                courseTile("Math", "MATH", "images/math.jpg"),
+                courseTile("Business Administration",  "BA", "images/ba.jpg"),
+                courseTile("Exercise science",  "ES", "images/exercise_science.jpg")
               ],
             ),
           )
@@ -49,9 +49,9 @@ class _SubjectsPageState extends State<SubjectsPage> {
       );
   }
 
-  Widget courseTile(String name, String image) {
+  Widget courseTile(String name, String abbreviation, String image) {
     return InkWell(
-      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const TermPage(abbreviation: "CS"))),
+      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => TermPage(abbreviation: abbreviation))),
       child: Card(
         elevation: 10.0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),

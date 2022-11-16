@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_dawg/models/course.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class ClassRegistrationPage extends StatefulWidget {
-  const ClassRegistrationPage({Key? key}) : super(key: key);
+  final Course course;
+  const ClassRegistrationPage({Key? key, required this.course}) : super(key: key);
 
   @override
   State<ClassRegistrationPage> createState() => _ClassRegistrationPageState();
@@ -15,7 +17,7 @@ class _ClassRegistrationPageState extends State<ClassRegistrationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("CS 170"),
+        title: Text(widget.course.name),
         backgroundColor: Colors.deepPurpleAccent,
       ),
       body: Padding(
@@ -31,9 +33,9 @@ class _ClassRegistrationPageState extends State<ClassRegistrationPage> {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
-                          children: const [
-                            Text("Intro to Computer Science I", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),),
-                            Text("CS Spring 2023", style: TextStyle(color: Colors.grey, fontSize: 18.0),),
+                          children: [
+                            Text(widget.course.shortDesc, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),),
+                            Text("${widget.course.abbreviation} ${widget.course.term}", style: const TextStyle(color: Colors.grey, fontSize: 18.0),),
                           ],
                         ),
                       ),
@@ -45,9 +47,9 @@ class _ClassRegistrationPageState extends State<ClassRegistrationPage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
-                          children: const [
-                            Text("Professor", style: TextStyle(color: Colors.grey, fontSize: 18.0),),
-                            Text("Kafi Rahman", style: TextStyle(color: Colors.black, fontSize: 18.0),),
+                          children: [
+                            const Text("Professor", style: TextStyle(color: Colors.grey, fontSize: 18.0),),
+                            Text(widget.course.professor, style: const TextStyle(color: Colors.black, fontSize: 18.0),),
                           ],
                         ),
                         Container(
@@ -68,9 +70,9 @@ class _ClassRegistrationPageState extends State<ClassRegistrationPage> {
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text("Rating", style: TextStyle(color: Colors.grey, fontSize: 18.0),),
-                            Text("4/5", style: TextStyle(color: Colors.black, fontSize: 18.0),),
+                          children: [
+                            const Text("Rating", style: TextStyle(color: Colors.grey, fontSize: 18.0),),
+                            Text("${widget.course.rating}/5", style: const TextStyle(color: Colors.black, fontSize: 18.0),),
                           ],
                         ),
                         Row(
@@ -87,7 +89,7 @@ class _ClassRegistrationPageState extends State<ClassRegistrationPage> {
                     ),
                     const SizedBox(height: 10.0,),
                     const Text("Description", style: TextStyle(color: Colors.grey, fontSize: 18.0),),
-                    const Text("Introduction to key ideas of computing and programming. Basic concepts, variables, functions, loops, algorithms, data types, graphics. Brief introduction to computing ideas such as data representation, hardware, operating systems, information systems, artificial intelligence, networks, and the world wide web.", style: TextStyle(color: Colors.black, fontSize: 18.0),),
+                    Text(widget.course.longDesc, style: const TextStyle(color: Colors.black, fontSize: 18.0),),
                     const SizedBox(height: 15.0,),
                     const Align(
                       alignment: Alignment.center,
@@ -108,10 +110,10 @@ class _ClassRegistrationPageState extends State<ClassRegistrationPage> {
                             thicknessUnit: GaugeSizeUnit.factor,
                             cornerStyle: CornerStyle.startCurve,
                           ),
-                          pointers: const <GaugePointer>[
+                          pointers: <GaugePointer>[
                             RangePointer(
                               color: Colors.deepPurpleAccent,
-                                value: 80,
+                                value: widget.course.difficulty.toDouble(),
                                 width: 0.1,
                                 sizeUnit: GaugeSizeUnit.factor,
                                 cornerStyle: CornerStyle.bothCurve)
